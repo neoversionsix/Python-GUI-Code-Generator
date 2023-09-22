@@ -15,8 +15,8 @@ class App:
         
         # Label and Textbox for input template
         tk.Label(root, text="PASTE TEMPLATE CODE HERE").pack(pady=10)
-        self.template_text = tk.Text(root, height=10, width=50)
-        self.template_text.pack(pady=10)
+        self.template_text = tk.Text(root)  # Removed height and width attributes
+        self.template_text.pack(pady=10, fill=tk.BOTH, expand=True)  # Adjusted packing
 
         # Button to run the process
         self.run_button = tk.Button(root, text="RUN", command=self.generate_code)
@@ -53,5 +53,6 @@ class App:
         
 root = tk.Tk()
 root.title("Code Generator")
+root.state('zoomed')  # Maximize the window without hiding the taskbar
 app = App(root)
 root.mainloop()
